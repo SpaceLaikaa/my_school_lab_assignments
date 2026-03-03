@@ -44,6 +44,23 @@ public class DigitalBank {
                 transactionHistory[9] = record;
             }
         }
+        public void deposit(double amount) {
+            if (amount > 0) {
+                this.balance += amount;
+                addTransaction("DEPOSIT: " + amount);
+            } else {
+                addTransaction("FAILED_DEPOSIT: " + amount);
+            }
+        }
+        public void withdraw(double amount) {
+            if (amount > 0 && this.balance >= amount) {
+                this.balance -= amount;
+                addTransaction("WITHDRAW: " + amount);
+            } else {
+                addTransaction("FAILED_WITHDRAW: " + amount);
+            }
+        }
+
     }
 }
 
