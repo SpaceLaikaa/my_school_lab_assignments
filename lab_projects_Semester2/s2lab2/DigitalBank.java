@@ -9,23 +9,41 @@ public class DigitalBank {
         private String ownerName;
         private long iban;
         private double balance;
-        private String transactionHistory;
+        private String[] transactionHistory;
 
-        public BankAccount(String ownerName, long iban,String transactionHistory){
+        public BankAccount(String ownerName, long iban){
             this.ownerName = ownerName;
             this.iban = iban;
             balance=0;
+            this.transactionHistory = new String[10];
         }
 
         public String getOwnerName(){return ownerName;}
         public long getIban(){return iban;}
         public double getBalance(){return balance;}
-        public String getTransactionHistory(){return  transactionHistory;}
+        public String[] getTransactionHistory(){return  transactionHistory;}
 
         public void setOwnerName(String ownerName){this.ownerName=ownerName;}
         public void setIban(long iban){this.iban=iban;}
-        public void setTransactionHistory(String transactionHistory){this.transactionHistory=transactionHistory;}
+        public void setTransactionHistory(String[] transactionHistory){this.transactionHistory=transactionHistory;}
         public void setBalance(double balance){this.balance=balance;}
+
+        private void addTransaction(String record){
+            int currentCount = 0;
+            for (int i = 0; i < transactionHistory.length; i++) {
+                if (transactionHistory[i] != null) {
+                    currentCount++;
+                }
+            }
+            if (currentCount < 10) {
+                transactionHistory[currentCount] = record;
+            } else {
+                for (int i = 1; i < transactionHistory.length; i++) {
+                    transactionHistory[i - 1] = transactionHistory[i];
+                }
+                transactionHistory[9] = record;
+            }
+        }
     }
 }
 

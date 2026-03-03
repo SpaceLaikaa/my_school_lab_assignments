@@ -60,9 +60,9 @@ public class Bank {
 }
 
     class BankAccount {
-        String ownerName;
-        long iban;
-        double balance=0;
+        private String ownerName;
+        private long iban;
+        private double balance=0;
 
 
         public BankAccount(String ownerName, long iban, double balance) {
