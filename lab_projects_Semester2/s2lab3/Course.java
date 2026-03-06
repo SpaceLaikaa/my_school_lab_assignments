@@ -1,27 +1,61 @@
 package lab_projects_Semester2.s2lab3;
 
+import java.util.ArrayList;
+
 public class Course {
     private int courseCode;
     private String courseName;
-
-    Student[] enrolledStudents ;
+    private ArrayList<Student> enrolledStudents;
 
     public Course(int courseCode, String courseName){
         this.courseCode=courseCode;
         this.courseName=courseName;
-        enrolledStudents = new Student[3];
+        enrolledStudents = new ArrayList<>();
     }
 
     public void addStudent(Student s){
-        boolean add=false;
-        for (int i = 0; i < enrolledStudents.length; i++) {
-            if(enrolledStudents[i]==null){
-                enrolledStudents[i]=s;
-                System.out.println("Student enrolled: "+s.getName());
-                add = true;
-                break;
-            }
+        if (enrolledStudents.size() >= 3) {
+            System.out.println("Course Full: Cannot enroll more than 3 students.");
+        } else {
+            enrolledStudents.add(s);
+            System.out.println("Student enrolled: " + s.getName());
         }
-        if(!add){System.out.println("Course Full: Cannot enroll more than 3 students.");}
     }
 }
+
+
+
+
+
+
+
+
+
+               // WITH ARRAY
+//package lab_projects_Semester2.s2lab3;
+//
+//public class Course {
+//    private int courseCode;
+//    private String courseName;
+//
+//    Student[] enrolledStudents ;
+//
+//    public Course(int courseCode, String courseName){
+//        this.courseCode=courseCode;
+//        this.courseName=courseName;
+//        enrolledStudents = new Student[3];
+//    }
+//
+//    public void addStudent(Student s){
+//        boolean add=false;
+//        for (int i = 0; i < enrolledStudents.length; i++) {
+//            if(enrolledStudents[i]==null){
+//                enrolledStudents[i]=s;
+//                System.out.println("Student enrolled: "+s.getName());
+//                add = true;
+//                break;
+//            }
+//        }
+//        if(!add){System.out.println("Course Full: Cannot enroll more than 3 students.");}
+//    }
+//}
