@@ -1,5 +1,6 @@
 package lab_projects_Semester2.s2lab3;
 
+
 public class Student {
     private int studentID;
     private String name;
@@ -19,5 +20,8 @@ public class Student {
     public void setName(String name){this.name=name;}
     public void setGpa(double gpa){this.gpa=gpa;}
 
+    public void printInfo(){
+        System.out.println("Student ID: "+this.studentID+"| Student Name: "+this.name+"| Student GPA: "+this.gpa);
+    }
 
 }

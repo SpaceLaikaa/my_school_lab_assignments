@@ -1,0 +1,13 @@
+package lab_projects_Semester2.s2lab3;
+
+public class EnrollmentDemo {
+    public static void main(String[] args) {
+        Student student1 = new Student(15, "Oguz",3.6);
+        Student student2 = new Student(27, "Hamza",3.2);
+        Student student3 = new Student(12, "Arda",2.9);
+
+        student1.printInfo();
+        student2.printInfo();
+        student3.printInfo();
+    }
+}
