@@ -16,5 +16,6 @@ public class EnrollmentDemo {
         SE115.addStudent(student2);
         SE115.addStudent(student3);
         SE115.addStudent(student3);
+        SE115.displayEnrolledStudents();
     }
 }

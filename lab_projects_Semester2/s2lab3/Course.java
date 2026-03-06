@@ -21,6 +21,12 @@ public class Course {
             System.out.println("Student enrolled: " + s.getName());
         }
     }
+    public void displayEnrolledStudents(){
+        System.out.println("Enrolled Students: ");
+        for(Student students : enrolledStudents){
+            System.out.println(students.getName());
+        }
+    }
 }
 
 
