@@ -13,11 +13,15 @@ public class Course {
     }
 
     public void addStudent(Student s){
-        int studentCount=0;
+        boolean add=false;
         for (int i = 0; i < enrolledStudents.length; i++) {
-            studentCount++;
-            if(studentCount==enrolledStudents.length){System.out.println("Course Full: Cannot enroll more than 3 students.");}
-            else{s = enrolledStudents[i];}
+            if(enrolledStudents[i]==null){
+                enrolledStudents[i]=s;
+                System.out.println("Student enrolled: "+s.getName());
+                add = true;
+                break;
+            }
         }
+        if(!add){System.out.println("Course Full: Cannot enroll more than 3 students.");}
     }
 }

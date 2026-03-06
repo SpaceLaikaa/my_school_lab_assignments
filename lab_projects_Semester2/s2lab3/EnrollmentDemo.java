@@ -9,5 +9,12 @@ public class EnrollmentDemo {
         student1.printInfo();
         student2.printInfo();
         student3.printInfo();
+
+        Course SE115 = new Course(115,"SE115");
+
+        SE115.addStudent(student1);
+        SE115.addStudent(student2);
+        SE115.addStudent(student3);
+        SE115.addStudent(student3);
     }
 }
