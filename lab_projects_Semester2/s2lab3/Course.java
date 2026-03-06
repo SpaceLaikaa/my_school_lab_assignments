@@ -27,6 +27,22 @@ public class Course {
             System.out.println(students.getName());
         }
     }
+
+    public void removeStudentByID(String id){
+        boolean valid = false;
+        int realID = Integer.parseInt(id);
+        int studentCount = 0;
+        for(Student students : enrolledStudents) {
+            if(realID==students.getStudentID()){
+                System.out.println("Removing Student: "+students.getStudentID());
+                enrolledStudents.remove(studentCount);
+                valid = true;
+                break;
+            }
+            studentCount++;
+        }
+        if(!valid){System.out.println("No ID Such as "+id);}
+    }
 }
 
 

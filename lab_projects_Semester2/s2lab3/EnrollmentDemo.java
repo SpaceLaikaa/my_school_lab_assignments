@@ -12,10 +12,16 @@ public class EnrollmentDemo {
 
         Course SE115 = new Course(115,"SE115");
 
+        //Task 3
         SE115.addStudent(student1);
         SE115.addStudent(student2);
         SE115.addStudent(student3);
         SE115.addStudent(student3);
         SE115.displayEnrolledStudents();
+        System.out.println("-----------");
+        //Task 4
+        SE115.removeStudentByID("12");
+        SE115.removeStudentByID("50");
+
     }
 }
