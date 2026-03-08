@@ -9,11 +9,6 @@ public class Course {
     private ArrayList<Student> enrolledStudents;
     private ArrayList<Student> probationList; //Bonus task
 
-
-
-
-
-
     public Course(int courseCode, String courseName){
         this.courseCode=courseCode;
         this.courseName=courseName;
@@ -23,7 +18,7 @@ public class Course {
 
     //bonus task
     public void filterProbation(){
-        Iterator<Student> iterator = enrolledStudents.iterator();
+        Iterator<Student> iterator = enrolledStudents.iterator(); //I used iterator for shifting error.
         while(iterator.hasNext()){
             Student student = iterator.next();
             if(student.getGpa()<2.0){
@@ -32,6 +27,15 @@ public class Course {
                 System.out.println("Moved to probation: "+student.getName());
             }
         }
+        System.out.println("Probation List Size: "+probationList.size());
+        System.out.println("Enrollment List Size: "+enrolledStudents.size());
+    }
+
+    public void searchByName(String keyword){
+        ArrayList<Student> results;
+        Iterator<Student> enrolledIterator = enrolledStudents.iterator();
+        Iterator<Student> probationIterator = probationList.iterator();
+
     }
 
     //Tasks
@@ -69,7 +73,6 @@ public class Course {
         if(!valid){System.out.println("No ID Such as "+id);}
     }
 }
-
 
 
 

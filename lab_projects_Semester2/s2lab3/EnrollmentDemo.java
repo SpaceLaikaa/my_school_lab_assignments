@@ -3,8 +3,11 @@ package lab_projects_Semester2.s2lab3;
 public class EnrollmentDemo {
     public static void main(String[] args) {
         Student student1 = new Student(15, "Oguz",3.6);
-        Student student2 = new Student(27, "Hamza",3.2);
+        Student student2 = new Student(27, "Hamza",1.3);
         Student student3 = new Student(12, "Arda",2.9);
+        Student student4 = new Student(34, "Adil",2.5);//Extra student obj for bonus task
+        Student student5 = new Student(67, "Kadir",3.7);
+
 
         student1.printInfo();
         student2.printInfo();
@@ -23,6 +26,9 @@ public class EnrollmentDemo {
         //Task 4
         SE115.removeStudentByID("12");
         SE115.removeStudentByID("50");
+        SE115.displayEnrolledStudents();
+        //Bonus Task
+        SE115.filterProbation();
         SE115.displayEnrolledStudents();
 
     }
