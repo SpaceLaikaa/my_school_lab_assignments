@@ -1,18 +1,40 @@
 package lab_projects_Semester2.s2lab3;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Course {
     private int courseCode;
     private String courseName;
     private ArrayList<Student> enrolledStudents;
+    private ArrayList<Student> probationList; //Bonus task
+
+
+
+
+
 
     public Course(int courseCode, String courseName){
         this.courseCode=courseCode;
         this.courseName=courseName;
         enrolledStudents = new ArrayList<>();
+        probationList = new ArrayList<>();
     }
 
+    //bonus task
+    public void filterProbation(){
+        Iterator<Student> iterator = enrolledStudents.iterator();
+        while(iterator.hasNext()){
+            Student student = iterator.next();
+            if(student.getGpa()<2.0){
+                probationList.add(student);
+                iterator.remove();
+                System.out.println("Moved to probation: "+student.getName());
+            }
+        }
+    }
+
+    //Tasks
     public void addStudent(Student s){
         if (enrolledStudents.size() >= 3) {
             System.out.println("Course Full: Cannot enroll more than 3 students.");
@@ -30,17 +52,20 @@ public class Course {
 
     public void removeStudentByID(String id){
         boolean valid = false;
+        boolean real = false;
         int realID = Integer.parseInt(id);
         int studentCount = 0;
+
         for(Student students : enrolledStudents) {
             if(realID==students.getStudentID()){
                 System.out.println("Removing Student: "+students.getStudentID());
                 enrolledStudents.remove(studentCount);
-                valid = true;
+                valid = true; real = true;
                 break;
             }
-            studentCount++;
+             studentCount++;
         }
+        if(!real){System.out.println("");}
         if(!valid){System.out.println("No ID Such as "+id);}
     }
 }

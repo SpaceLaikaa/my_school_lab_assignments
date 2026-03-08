@@ -9,6 +9,7 @@ public class EnrollmentDemo {
         student1.printInfo();
         student2.printInfo();
         student3.printInfo();
+        System.out.println("======");
 
         Course SE115 = new Course(115,"SE115");
 
@@ -22,6 +23,7 @@ public class EnrollmentDemo {
         //Task 4
         SE115.removeStudentByID("12");
         SE115.removeStudentByID("50");
+        SE115.displayEnrolledStudents();
 
     }
 }

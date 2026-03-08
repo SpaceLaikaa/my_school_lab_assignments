@@ -1,7 +1,7 @@
 package lab_projects_Semester2.s2lab3;
 
 
-public class Student {
+public class Student implements Comparable<Student> {
     private int studentID;
     private String name;
     private double gpa;
@@ -24,4 +24,8 @@ public class Student {
         System.out.println("Student ID: "+this.studentID+"| Student Name: "+this.name+"| Student GPA: "+this.gpa);
     }
 
+    @Override
+    public int compareTo(Student other) {
+        return Integer.compare(this.studentID, other.studentID);
+    }
 }
