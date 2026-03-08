@@ -31,11 +31,27 @@ public class Course {
         System.out.println("Enrollment List Size: "+enrolledStudents.size());
     }
 
-    public void searchByName(String keyword){
-        ArrayList<Student> results;
+    public ArrayList<Student> searchByName(String keyword){
+        ArrayList<Student> results = new ArrayList<>();
         Iterator<Student> enrolledIterator = enrolledStudents.iterator();
         Iterator<Student> probationIterator = probationList.iterator();
 
+        while (enrolledIterator.hasNext()){
+            Student student = enrolledIterator.next();
+            if(student.getName().toLowerCase().contains(keyword)){
+                results.add(student);
+            }
+        }
+        while (probationIterator.hasNext()){
+            Student student = probationIterator.next();
+            if (student.getName().toLowerCase().contains(keyword)){
+                results.add(student);
+            }
+        }
+        if (results.isEmpty()){
+            System.out.println("No student found matching: " + keyword);
+        }
+        return results;
     }
 
     //Tasks

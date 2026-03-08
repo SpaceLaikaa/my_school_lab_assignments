@@ -7,6 +7,7 @@ public class EnrollmentDemo {
         Student student3 = new Student(12, "Arda",2.9);
         Student student4 = new Student(34, "Adil",2.5);//Extra student obj for bonus task
         Student student5 = new Student(67, "Kadir",3.7);
+        Student student6 = new Student(31,"Arda",3.4);
 
 
         student1.printInfo();
@@ -30,6 +31,10 @@ public class EnrollmentDemo {
         //Bonus Task
         SE115.filterProbation();
         SE115.displayEnrolledStudents();
-
+        System.out.println("-----------");
+        // I add 2 student with the same name to observe what happens.
+        SE115.searchByName("arda");
+        SE115.searchByName("oguz");
+        SE115.searchByName("Banana");
     }
 }
