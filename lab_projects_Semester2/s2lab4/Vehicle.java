@@ -46,13 +46,25 @@ public class Vehicle {
             @Override
             public void calculateRental(int days){
                 double costCalculation=0;
-                int extraCost=0;
+                int extraCost=1;
 
-                if(axleCount<2&&axleCount>0){
-
+                if(axleCount>2&&axleCount<=4){
+                    extraCost=2;
+                    costCalculation = days*dailyRate*extraCost;
+                    System.out.println("Axle Count: "+axleCount+"|It is over the limit you will get an extra cost.");
+                    System.out.println("It will cost "+ costCalculation+" for "+days+"day");
                 }
-                costCalculation = days*dailyRate;
-                System.out.println("It will cost "+ costCalculation+" for "+days+"day");
+                else if (axleCount>4&&axleCount<=8) {
+                    extraCost=3;
+                    costCalculation = days*dailyRate*extraCost;
+                    System.out.println("Axle Count: "+axleCount+"|It is OOOVER the limit you will get an extra extra cost.");
+                    System.out.println("It will cost "+ costCalculation+" for "+days+"day");
+                }
+                else {
+                    costCalculation = days*dailyRate*extraCost;
+                    System.out.println("Axle Count: "+axleCount+"|It is not over the limit. No extra cost.");
+                    System.out.println("It will cost "+ costCalculation+" for "+days+"day");
+                }
             }
     }
 
