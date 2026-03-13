@@ -15,7 +15,7 @@ public class Librarian {
 
         if (comingBooks != null) {
             for (int i = 0; i < comingBooks.length && i < 5; i++) {
-                if (comingBooks[i] != null) {
+                if (comingBooks[i] != null) {   
                     this.books[bookCount] = comingBooks[i];
                     bookCount++;
                 }
