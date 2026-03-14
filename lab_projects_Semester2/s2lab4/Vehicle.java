@@ -2,70 +2,52 @@ package lab_projects_Semester2.s2lab4;
 
 public class Vehicle {
     private String licensePlate;
-    private double dailyRate;
+    protected double dailyRate;
 
-
-    public Vehicle(String licensePlate,double dailyRate){
+    public Vehicle(String licensePlate, double dailyRate) {
         this.licensePlate = licensePlate;
         this.dailyRate = dailyRate;
     }
 
-    public void calculateRental(int days){
-        double costCalculation=0;
-        costCalculation = days*dailyRate;
-        System.out.println("It will cost "+ costCalculation+" for "+days+"day");
+    public void calculateRental(int days) {
+        double costCalculation = days * dailyRate;
+        System.out.println("It will cost " + costCalculation + " for " + days + " days");
     }
 
-    public void safetyCheck(){
-        System.out.println("License Plate: "+licensePlate+" ,Brakes: Working, Lights: Working");
-    }
-
-    public class Truck extends Vehicle {
+    public static class Truck extends Vehicle {
         private double cargoCapacity;
 
-        public Truck(String licensePlate, double dailyRate) {
+        public Truck(String licensePlate, double dailyRate, double cargoCapacity) {
             super(licensePlate, dailyRate);
+            this.cargoCapacity = cargoCapacity;
+        }
+    }
+
+    public static class HeavyDutyTruck extends Truck {
+        private double axleCount = 0;
+
+        public HeavyDutyTruck(String licensePlate, double dailyRate, double cargoCapacity, double axleCount) {
+            super(licensePlate, dailyRate, cargoCapacity);
+            this.axleCount = axleCount;
         }
 
         @Override
-        public void safetyCheck(){
-            if(cargoCapacity<40){
-                System.out.println("Safe to ride.");
-            }
-            else if(cargoCapacity>=40){
-                System.out.println("Truck is over the weight limit(40). Unsafe Vehicle.");
-            }
+        public void calculateRental(int days) {
+            int extraCost = (axleCount > 4) ? 3 : (axleCount > 2 ? 2 : 1);
+            double costCalculation = days * dailyRate * extraCost;
+            System.out.println("Axle Count: " + axleCount + " | Cost: " + costCalculation);
         }
     }
 
-    public class HeavyDutyTruck extends Truck{
-        private double axleCount=0;
-        public HeavyDutyTruck(String licensePlate, double dailyRate){
-            super(licensePlate,dailyRate);
+    public static void main(String[] args) {
+        Vehicle truck1 = new Vehicle.Truck("35 ARDA 35", 2.0, 39);
+        Vehicle heavyTruck1 = new Vehicle.HeavyDutyTruck("26 BRS 26", 3.0, 45, 5);
+        Vehicle heavyTruck2 = new Vehicle.HeavyDutyTruck("06 OGZ 06", 1.5, 20, 3);
+
+        Vehicle[] vehicles = {truck1, heavyTruck1, heavyTruck2};
+
+        for (Vehicle v : vehicles) {
+            v.calculateRental(5);
         }
-            @Override
-            public void calculateRental(int days){
-                double costCalculation=0;
-                int extraCost=1;
-
-                if(axleCount>2&&axleCount<=4){
-                    extraCost=2;
-                    costCalculation = days*dailyRate*extraCost;
-                    System.out.println("Axle Count: "+axleCount+"|It is over the limit you will get an extra cost.");
-                    System.out.println("It will cost "+ costCalculation+" for "+days+"day");
-                }
-                else if (axleCount>4&&axleCount<=8) {
-                    extraCost=3;
-                    costCalculation = days*dailyRate*extraCost;
-                    System.out.println("Axle Count: "+axleCount+"|It is OOOVER the limit you will get an extra extra cost.");
-                    System.out.println("It will cost "+ costCalculation+" for "+days+"day");
-                }
-                else {
-                    costCalculation = days*dailyRate*extraCost;
-                    System.out.println("Axle Count: "+axleCount+"|It is not over the limit. No extra cost.");
-                    System.out.println("It will cost "+ costCalculation+" for "+days+"day");
-                }
-            }
     }
-
 }
