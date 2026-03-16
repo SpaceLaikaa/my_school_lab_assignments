@@ -21,6 +21,12 @@ public class Vehicle {
             super(licensePlate, dailyRate);
             this.cargoCapacity = cargoCapacity;
         }
+
+        @Override
+        public boolean checkRisk(){
+            if (cargoCapacity>20){return true;}
+            else{return false;}
+        }
     }
 
     public static class HeavyDutyTruck extends Truck {
@@ -37,6 +43,16 @@ public class Vehicle {
             double costCalculation = days * dailyRate * extraCost;
             System.out.println("Axle Count: " + axleCount + " | Cost: " + costCalculation);
         }
+
+        @Override
+        public boolean checkRisk(){
+            if(axleCount>4){return true;}
+            else{return false;}
+        }
+    }
+
+    public boolean checkRisk(){//by default return false to Vehicle class
+        return false;
     }
 
     public static void main(String[] args) {
