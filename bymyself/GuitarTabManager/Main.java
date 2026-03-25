@@ -3,7 +3,6 @@ package bymyself.GuitarTabManager;
 import java.util.Scanner;
 import java.nio.file.Paths;
 import java.io.IOException;
-import java.io.FileWriter;
 
 public class Main {
 
