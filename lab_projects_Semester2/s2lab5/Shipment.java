@@ -23,9 +23,14 @@ public class Shipment {
     public void setDistanceKm(int distanceKm) {this.distanceKm = distanceKm;}
     public void setWeightKg(int weightKg) {this.weightKg = weightKg;}
 
+    //Task1
     public double calculateFee(){
         return weightKg*distanceKm;//Price
     }
 
-    public void printReceipt(){}
+    public void printReceipt(){
+        System.out.println("Tracking No: "+trackingNo+" Content Type: "+contentType+" Shipment Type: (Empty For now)");
+        System.out.println("Weight(KG): "+weightKg+" Distance(KM): "+distanceKm+"Total Fee: "+calculateFee());
+    }
+    //Task2
 }
