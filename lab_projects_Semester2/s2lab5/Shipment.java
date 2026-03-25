@@ -25,12 +25,12 @@ public class Shipment {
 
     //Task1
     public double calculateFee(){
-        return weightKg*distanceKm;//Price
+        return weightKg*distanceKm;//Price will change depends on the shipment type
     }
 
     public void printReceipt(){
         System.out.println("Tracking No: "+trackingNo+" Content Type: "+contentType+" Shipment Type: (Empty For now)");
         System.out.println("Weight(KG): "+weightKg+" Distance(KM): "+distanceKm+"Total Fee: "+calculateFee());
     }
-    //Task2
+
 }
