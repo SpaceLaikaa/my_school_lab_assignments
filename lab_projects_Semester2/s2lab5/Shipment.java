@@ -28,8 +28,8 @@ public class Shipment {
         return weightKg*distanceKm;//Price will change depends on the shipment type
     }
 
-    public void printReceipt(){
-        System.out.println("Tracking No: "+trackingNo+" Content Type: "+contentType+" Shipment Type: (Empty For now)");
+    public void printReceipt(){                           //So getClass and getSimpleName methods are used to get class name
+        System.out.println("Tracking No: "+trackingNo+" Content Type: "+contentType+" Shipment Type: "+getClass().getSimpleName());
         System.out.println("Weight(KG): "+weightKg+" Distance(KM): "+distanceKm+"Total Fee: "+calculateFee());
     }
 
