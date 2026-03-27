@@ -12,4 +12,12 @@ public class InternationalShipping extends Shipment{
         }
         else {return 30+40+0.15*getDistanceKm()+3*getWeightKg()+35;}//long distance
     }
+
+    @Override
+    public double finalFee(){
+        if(getWeightKg()<10){
+            return calculateFee()*((double) 97/100);
+        }
+        else{return calculateFee();}
+    }
 }

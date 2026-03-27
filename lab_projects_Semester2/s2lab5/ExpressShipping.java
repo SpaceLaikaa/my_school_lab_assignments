@@ -9,4 +9,9 @@ public class ExpressShipping extends Shipment{
     public double calculateFee(){
         return 20+25+0.12*getDistanceKm()+2.2*getWeightKg();
     }
+
+    @Override
+    public double finalFee(){
+        return calculateFee();
+    }
 }
