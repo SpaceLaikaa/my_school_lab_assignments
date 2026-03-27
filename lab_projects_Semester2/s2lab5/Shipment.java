@@ -31,7 +31,6 @@ public class Shipment {
     }
 
     public void printReceipt(){          //So getClass and getSimpleName methods are used to get class name
-        String shipmentType = ExpressShipping.class.getSimpleName();
         System.out.println("Tracking No: "+trackingNo+" Content Type: "+contentType+" Shipment Type: "+getClass().getSimpleName());
         System.out.println("Weight(KG): "+weightKg+" Distance(KM): "+distanceKm+" Total Fee: "+calculateFee());
         System.out.println("=======");
