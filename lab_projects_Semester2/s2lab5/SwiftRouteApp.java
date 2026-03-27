@@ -28,7 +28,7 @@ public class SwiftRouteApp {
         String mapKey = userTrackingNoChoice+"-"+userContentTypeChoice;
 
         if(userShipmentTypeChoice==1){                             //Could've shorten the variable names
-            Shipment standartShipment = new Shipment(userTrackingNoChoice,userContentTypeChoice,userWeightChoice,userDistanceChoice);
+            Shipment standartShipment = new StandardShipping(userTrackingNoChoice,userContentTypeChoice,userWeightChoice,userDistanceChoice);
             shipmentHashMap.put(mapKey,standartShipment);
 
             System.out.println("Standard Shipment send successfully! Shipment Code(Do not share it): "+mapKey);
@@ -36,7 +36,7 @@ public class SwiftRouteApp {
 
         }
         else if(userShipmentTypeChoice==2){
-            Shipment expressShipment = new Shipment(userTrackingNoChoice,userContentTypeChoice,userWeightChoice,userDistanceChoice);
+            Shipment expressShipment = new ExpressShipping(userTrackingNoChoice,userContentTypeChoice,userWeightChoice,userDistanceChoice);
             shipmentHashMap.put(mapKey,expressShipment);
 
             System.out.println("Express Shipment send successfully! Shipment Code(Do not share it): "+mapKey);
@@ -45,7 +45,7 @@ public class SwiftRouteApp {
 
         }
         else if (userShipmentTypeChoice==3){
-            Shipment internationalShipment = new Shipment(userTrackingNoChoice,userContentTypeChoice,userWeightChoice,userDistanceChoice);
+            Shipment internationalShipment = new InternationalShipping(userTrackingNoChoice,userContentTypeChoice,userWeightChoice,userDistanceChoice);
             shipmentHashMap.put(mapKey,internationalShipment);
 
             System.out.println("Shipment send successfully! Shipment Code(Do not share it): "+mapKey);

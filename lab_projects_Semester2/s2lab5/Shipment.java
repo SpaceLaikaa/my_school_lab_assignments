@@ -34,6 +34,8 @@ public class Shipment {
         String shipmentType = ExpressShipping.class.getSimpleName();
         System.out.println("Tracking No: "+trackingNo+" Content Type: "+contentType+" Shipment Type: "+getClass().getSimpleName());
         System.out.println("Weight(KG): "+weightKg+" Distance(KM): "+distanceKm+" Total Fee: "+calculateFee());
+        System.out.println("=======");
+        System.out.println("Normal Fee: "+calculateFee()+" Final Fee: "+finalFee());
     }
 
     public void printExpressNote(){
