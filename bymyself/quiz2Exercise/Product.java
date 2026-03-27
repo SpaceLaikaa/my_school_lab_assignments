@@ -23,5 +23,11 @@ public class Product {
     public void setStockQuantity(int stockQuantity) {this.stockQuantity = stockQuantity;}
     public void setUnitPrice(double unitPrice) {this.unitPrice = unitPrice;}
 
+    public double calculateStockValue(){
+        return unitPrice*stockQuantity;
+    }
 
+    public void displayInfo(){
+        System.out.println("Product ID: "+productID+" Stock: "+stockQuantity+" Unit Price: "+unitPrice+" Unit Name: "+name);
+    }
 }
