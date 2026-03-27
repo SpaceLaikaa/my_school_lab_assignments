@@ -6,4 +6,14 @@ public class Electronics extends Product{
         super(productID, name, unitPrice, stockQuantity);
         this.warrantyMonths = warrantyMonths;
     }
+    @Override
+    public double calculateStockValue(){
+        return (getUnitPrice()*getStockQuantity())*110/100;
+    }
+    @Override
+    public void displayInfo(){
+        System.out.println(super.toString());
+        System.out.println("Warranty Months: "+warrantyMonths);
+    }
+
 }
