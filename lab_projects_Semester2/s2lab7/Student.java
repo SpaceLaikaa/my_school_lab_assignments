@@ -21,7 +21,7 @@ public class Student {
     public String getPerformanceGrade() {return performanceGrade;}
 
     public void displayInfo(){
-        System.out.println("ID: "+id+"\nName: "+name+"\nGrade: "+grade+"\nPerformance Grade: "+performanceGrade);
+        System.out.println("ID: "+id+"\nName: "+name+"\nGrade: "+grade+"\nPerformance Grade: "+performanceGrade+"\n=====");
     }
 
     public interface GradeOperation{
