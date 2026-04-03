@@ -1,16 +1,15 @@
 package lab_projects_Semester2.s2lab7;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-public class StudentDemo {
+public class StudentDemo2 {
     public static void main(String[] args) {
         ArrayList<Student> students = new ArrayList<>();
 
-        Student student1 = new Student(15,"Arda",87,"Good");
-        Student student2 = new Student(31,"Hamza",84,"Very Good");
-        Student student3 = new Student(7,"Oguz",35,"Bad");
-        Student student4 = new Student(26,"Baris",98,"Meh");
+        Student student1 = new Student(15, "Arda", 87, "Good");
+        Student student2 = new Student(31, "Hamza", 84, "Very Good");
+        Student student3 = new Student(7, "Oguz", 35, "Bad");
+        Student student4 = new Student(26, "Baris", 98, "Meh");
 
         students.add(student1);
         students.add(student2);
@@ -51,18 +50,6 @@ public class StudentDemo {
                 System.out.println("You Failed...");
             }
         }
-        Collections.sort(students, (s1,s2)->s1.getGrade() - s2.getGrade());
-        System.out.println("======= FINAL SORTED LIST =======");
-        for (Student s : students) {
-            s.displayInfo();
-            System.out.println("-----------------");
-        }
 
-        Collections.sort(students,(s1,s2)->s1.getName().compareTo(s2.getName()));
-        System.out.println("======= ALPHABETICAL SORTED LIST =======");
-        for (Student s : students) {
-            s.displayInfo();
-            System.out.println("-----------------");
-        }//task 1 ends
-     }
+    }
 }
