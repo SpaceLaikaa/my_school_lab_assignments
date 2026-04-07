@@ -23,5 +23,7 @@ public class Learner {
     public int getAverageScore() {return averageScore;}
     public String getMajor() {return major;}
 
-
+    public void showProfile(){
+        System.out.println("Learner ID: "+learnerId+"\nLearner Name: "+fullName+"\nLearner Major: "+major+"\nAvg Score: "+averageScore);
+    }
 }
