@@ -1,10 +1,17 @@
 package lab_projects_Semester2.s2lab7;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class StudentDemo2 {
     public static void main(String[] args) {
         ArrayList<Student> students = new ArrayList<>();
+        HashMap<String, Student.GradeOperation> hashMap = new HashMap<>();
+        hashMap.put("FIX_TO_40", grade -> 40.0);
+        hashMap.put("FIX_TO_90", grade -> 90.0);
+        hashMap.put("ADD_BONUS", grade -> grade+5);
+        hashMap.put("KEEP_SAME", grade -> grade);
+
 
         Student student1 = new Student(15, "Arda", 87, "Good");
         Student student2 = new Student(31, "Hamza", 84, "Very Good");

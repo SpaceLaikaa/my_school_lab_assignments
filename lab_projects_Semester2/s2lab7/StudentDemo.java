@@ -51,6 +51,7 @@ public class StudentDemo {
                 System.out.println("You Failed...");
             }
         }
+
         Collections.sort(students, (s1,s2)->s1.getGrade() - s2.getGrade());
         System.out.println("======= FINAL SORTED LIST =======");
         for (Student s : students) {
