@@ -6,11 +6,20 @@ public class TutorialGroup {
     private String groupTitle;
     private String groupCode;
 
-    ArrayList<Learner> learnerArrayList = new ArrayList<>();
+    ArrayList<Learner> members = new ArrayList<>();
 
     public void registerLearner(Learner I){
-        learnerArrayList.add(I);
+        members.add(I);
     }
 
-
+    public void dropLearner(String id){
+        for(int i=0;i<members.size();i++){
+            if(String.valueOf(members.get(i).getLearnerId()).equalsIgnoreCase(id)){
+                members.remove(i);
+                System.out.println("Student ("+id+") removed successfully.");
+                return;
+            }
+        }
+        System.out.println("Couldn't find "+id);
+    }
 }
