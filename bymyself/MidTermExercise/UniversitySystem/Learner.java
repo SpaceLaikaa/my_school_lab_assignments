@@ -1,6 +1,14 @@
 package bymyself.MidTermExercise.UniversitySystem;
 
-public class Learner {
+public class Learner implements Comparable<Learner>{
+
+    @Override
+    public int compareTo(Learner other){
+        if(this.learnerId>other.learnerId){return 1;}
+        if(this.learnerId< other.learnerId){return -1;}
+        return 0;
+    }
+
     public int learnerId;
     public String fullName;
     public String major;

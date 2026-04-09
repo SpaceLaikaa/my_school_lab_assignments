@@ -1,25 +1,28 @@
-package bymyself.MidTermExercise.UniversitySystem;
+    package bymyself.MidTermExercise.UniversitySystem;
 
-import java.util.ArrayList;
+    import java.util.ArrayList;
+    import java.util.Collections;
 
-public class TutorialGroup {
-    private String groupTitle;
-    private String groupCode;
+    public class TutorialGroup {
+        private String groupTitle;
+        private String groupCode;
 
-    ArrayList<Learner> members = new ArrayList<>();
+        ArrayList<Learner> members = new ArrayList<>();
 
-    public void registerLearner(Learner I){
-        members.add(I);
-    }
-
-    public void dropLearner(String id){
-        for(int i=0;i<members.size();i++){
-            if(String.valueOf(members.get(i).getLearnerId()).equalsIgnoreCase(id)){
-                members.remove(i);
-                System.out.println("Student ("+id+") removed successfully.");
-                return;
-            }
+        public void registerLearner(Learner I){
+            members.add(I);
+            Collections.sort(members);
+            Collections.sort(members,new AverageScoreSorter()); // when We add AverageScoreSorter it takes that classes Comparable method
         }
-        System.out.println("Couldn't find "+id);
+
+        public void dropLearner(String id){
+            for(int i=0;i<members.size();i++){
+                if(String.valueOf(members.get(i).getLearnerId()).equalsIgnoreCase(id)){
+                    members.remove(i);
+                    System.out.println("Student ("+id+") removed successfully.");
+                    return;
+                }
+            }
+            System.out.println("Couldn't find "+id);
+        }
     }
-}
