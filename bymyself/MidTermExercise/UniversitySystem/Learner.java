@@ -1,4 +1,4 @@
-package bymyself.MidTermExercise;
+package bymyself.MidTermExercise.UniversitySystem;
 
 public class Learner {
     public int learnerId;

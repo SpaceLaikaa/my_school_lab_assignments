@@ -1,6 +1,4 @@
-package bymyself.MidTermExercise;
-
-import org.w3c.dom.ls.LSOutput;
+package bymyself.MidTermExercise.UniversitySystem;
 
 public class Advisor {
     private int advisorId;
