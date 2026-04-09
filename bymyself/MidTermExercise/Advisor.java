@@ -31,4 +31,16 @@ public class Advisor {
         }
         System.out.println("Couldn't find or delete your item.");
     }
+
+    public void hasItem(String item){
+        for (int i =0;i<officeItems.length;i++){
+            if(officeItems[i].equalsIgnoreCase(item)){
+                System.out.println(item + " is in stock.");
+                return;
+            }
+        }
+        System.out.println("No item such as " +item);
+    }
+
+
 }
