@@ -1,9 +1,19 @@
 package bymyself.MidTermExercise;
 
 public class Advisor {
-    public int advisorId;
-    public String advisorName;
+    private int advisorId;
+    private String advisorName;
 
     String[] officeItems = new String[5];
+
+    public void placeItem(String item){
+        for (int i =0;i<officeItems.length;i++){
+            if (officeItems[i] == null){
+                officeItems[i]=item;
+                return;
+            }
+        }
+            System.out.println("Couldn't place any item.(Probably Full)");
+    }
 
 }
