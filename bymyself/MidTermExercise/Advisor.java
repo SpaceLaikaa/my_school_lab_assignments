@@ -21,20 +21,20 @@ public class Advisor {
     public void deleteItem(String item){
         for(int i =0;i<officeItems.length;i++){
             if(officeItems[i]!=null && officeItems[i].equalsIgnoreCase(item)){
-                for (int j = i;j<officeItems.length;j++){
+                for (int j = i;j<officeItems.length-1;j++){
                     officeItems[j] = officeItems[j+1];
                 }
                 officeItems[officeItems.length - 1] = null;
-                System.out.println("Successfully deleted item.");
+                System.out.println("Successfully deleted item. ("+item+")");
                 return;
             }
+
         }
-        System.out.println("Couldn't find or delete your item.");
     }
 
     public void hasItem(String item){
         for (int i =0;i<officeItems.length;i++){
-            if(officeItems[i].equalsIgnoreCase(item)){
+            if(officeItems[i]!=null&&officeItems[i].equalsIgnoreCase(item)){
                 System.out.println(item + " is in stock.");
                 return;
             }
@@ -42,5 +42,12 @@ public class Advisor {
         System.out.println("No item such as " +item);
     }
 
-
+    public void listItems(){
+        for (String items : officeItems){
+            if(items != null){
+                System.out.println(items);
+            }
+            else{return;}
+        }
+    }
 }
