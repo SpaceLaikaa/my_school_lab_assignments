@@ -33,5 +33,6 @@ public class Learner implements Comparable<Learner>{
 
     public void showProfile(){
         System.out.println("Learner ID: "+learnerId+"\nLearner Name: "+fullName+"\nLearner Major: "+major+"\nAvg Score: "+averageScore);
+        System.out.println("=========");
     }
 }

@@ -9,10 +9,15 @@
 
         ArrayList<Learner> members = new ArrayList<>();
 
+        public void compareAvgScore(){
+            Collections.sort(members,new AverageScoreSorter()); // when We add AverageScoreSorter it takes that classes Comparable method
+        }
+        public void compareById(){
+            Collections.sort(members);
+        }
+
         public void registerLearner(Learner I){
             members.add(I);
-            Collections.sort(members);
-            Collections.sort(members,new AverageScoreSorter()); // when We add AverageScoreSorter it takes that classes Comparable method
         }
 
         public void dropLearner(String id){
