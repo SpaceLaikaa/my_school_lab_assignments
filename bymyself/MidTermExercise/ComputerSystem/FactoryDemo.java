@@ -14,8 +14,11 @@ public class FactoryDemo {
         Computer d1 = new Desktop(15, "lenovo",15);
         Computer l1 = new Laptop(12,"HP",12);
         d1.addComponent(ram);
+        d1.addComponent(cpu);
+        l1.addComponent(ram);
         l1.addComponent(cpu);
         System.out.println(d1.toString());
+
 
     }
 }
