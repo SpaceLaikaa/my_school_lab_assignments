@@ -44,6 +44,8 @@ public class DriverMain {
         tg1.compareAvgScore();
         tg1.compareById();
 
+
+
         for(Learner learner : tg1.members){
             learner.showProfile();
         }
