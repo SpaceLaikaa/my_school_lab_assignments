@@ -25,6 +25,18 @@ public class Factory {
         else {
             System.out.println("Error: Computer ID " + id + " does not exist in the factory.");
         }
+    }
 
+    public Computer getComputerById(int id){
+        return computerMap.get(id);
+    }
+
+    public void printAllComputers(){
+        double totalPrice =0;
+        for(Computer computer : computers){
+            System.out.println("ID: "+computer.getId()+" | Brand: "+computer.getBrand());
+            totalPrice += computer.getBasePrice();
+        }
+        System.out.println("Total Price: "+totalPrice);
     }
  }

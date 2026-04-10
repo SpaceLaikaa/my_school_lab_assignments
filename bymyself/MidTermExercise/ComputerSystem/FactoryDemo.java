@@ -19,6 +19,11 @@ public class FactoryDemo {
         l1.addComponent(cpu);
         System.out.println(d1.toString());
 
+        Factory factory = new Factory();
 
+        factory.addComputer(d1);
+        factory.addComputer(l1);
+        factory.removeComputerId(12);
+        factory.removeComputerId(16);
     }
 }
