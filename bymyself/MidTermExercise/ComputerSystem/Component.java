@@ -1,5 +1,7 @@
 package bymyself.MidTermExercise.ComputerSystem;
 
+import org.w3c.dom.ls.LSOutput;
+
 public abstract class  Component {
     private String modelName;
     private double price;
@@ -20,5 +22,12 @@ public abstract class  Component {
     public void setPrice(double price) {this.price = price;}
 
     public abstract void upgradeSpecs(); //doubles subclass-specific attributes
+    public abstract String getType(); //returns component type as string
+
+    @Override
+    public String  toString(){
+        return "Model: "+modelName+" | Price: "+price+" | Power Usage: "+powerUsage;
+    }
+
 
 }
