@@ -1,9 +1,14 @@
 package bymyself.MidTermExercise.ComputerSystem;
 
+import java.nio.channels.ConnectionPendingException;
+import java.util.ArrayList;
+
 public abstract class Computer {
     private int id;
     private String brand;
     private double basePrice;
+
+    ArrayList<Component> components = new ArrayList<>();
 
     public Computer(int id,String brand, double basePrice){
         this.id = id;
@@ -18,6 +23,33 @@ public abstract class Computer {
     public void setBasePrice(double basePrice) {this.basePrice = basePrice;}
     public void setBrand(String brand) {this.brand = brand;}
     public void setId(int id) {this.id = id;}
+
+    public void addComponent(Component c){
+        components.add(c);
+    }
+
+    public double getTotalComponentPrice(){
+        double sumPrice=0;
+        for(Component com : components){
+            sumPrice+=com.getPrice();
+        }
+        return sumPrice;
+    }
+
+    public double getTotalPowerUsage(){
+        double totalPower=0;
+        for(Component com : components){
+            totalPower+=com.getPowerUsage();
+        }
+        return totalPower;
+    }
+
+    public abstract double calculatePrice();
+
+    @Override
+    public String toString() {
+        return "id: " + id + " | Brand: " + brand + " | BasePrice: " + basePrice + " | Components: " + components;
+    }
 
 
 }

@@ -28,6 +28,4 @@ public abstract class  Component {
     public String  toString(){
         return "Model: "+modelName+" | Price: "+price+" | Power Usage: "+powerUsage;
     }
-
-
 }

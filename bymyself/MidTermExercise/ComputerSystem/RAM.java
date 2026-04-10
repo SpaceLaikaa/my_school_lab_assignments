@@ -1,7 +1,7 @@
 package bymyself.MidTermExercise.ComputerSystem;
 
 public class RAM extends Component{
-    int capacityGB;
+    private int capacityGB;
     public RAM(String modelName,double price,int powerUsage,int capacityGB){
         super(modelName,price,powerUsage);
         this.capacityGB=capacityGB;
