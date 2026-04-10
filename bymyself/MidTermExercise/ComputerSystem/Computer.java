@@ -3,12 +3,16 @@ package bymyself.MidTermExercise.ComputerSystem;
 import java.nio.channels.ConnectionPendingException;
 import java.util.ArrayList;
 
-public abstract class Computer {
+public abstract class Computer implements Comparable<Computer>{
     private int id;
     private String brand;
     private double basePrice;
 
     ArrayList<Component> components = new ArrayList<>();
+    @Override
+    public int compareTo(Computer other) {
+        return Double.compare(this.calculatePrice(), other.calculatePrice());
+    }
 
     public Computer(int id,String brand, double basePrice){
         this.id = id;

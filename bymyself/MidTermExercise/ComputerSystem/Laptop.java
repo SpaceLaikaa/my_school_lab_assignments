@@ -22,5 +22,4 @@ public class Laptop extends Computer implements Upgradable{
         setBasePrice(getBasePrice()*2);
         System.out.println("DONE!");
     }
-
 }

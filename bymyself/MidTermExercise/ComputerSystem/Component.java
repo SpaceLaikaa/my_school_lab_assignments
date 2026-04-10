@@ -1,6 +1,5 @@
 package bymyself.MidTermExercise.ComputerSystem;
 
-import org.w3c.dom.ls.LSOutput;
 
 public abstract class  Component {
     private String modelName;

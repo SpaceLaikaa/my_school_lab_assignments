@@ -25,5 +25,10 @@ public class FactoryDemo {
         factory.addComputer(l1);
         factory.removeComputerId(12);
         factory.removeComputerId(16);
+        System.out.println("UNSORTED");
+        factory.printAllComputers();
+        factory.sortByOrder();
+        System.out.println("SORTED");
+        factory.printAllComputers();
     }
 }

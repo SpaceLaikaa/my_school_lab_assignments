@@ -1,6 +1,7 @@
 package bymyself.MidTermExercise.ComputerSystem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class Factory {
@@ -8,6 +9,9 @@ public class Factory {
 
     HashMap<Integer, Computer> computerMap = new HashMap<>();
 
+    public void sortByOrder(){
+        Collections.sort(this.computers);
+    }
 
     public void addComputer(Computer c){
         computers.add(c);
@@ -34,6 +38,7 @@ public class Factory {
     public void printAllComputers(){
         double totalPrice =0;
         for(Computer computer : computers){
+            Collections.sort(computers);
             System.out.println("ID: "+computer.getId()+" | Brand: "+computer.getBrand());
             totalPrice += computer.getBasePrice();
         }

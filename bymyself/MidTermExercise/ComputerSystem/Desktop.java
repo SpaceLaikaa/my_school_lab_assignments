@@ -5,6 +5,7 @@ public class Desktop extends Computer implements Upgradable, PowerConsumable{
         super(id, brand, basePrice);
     }
 
+
     @Override
     public double calculatePrice() {
         return getBasePrice() + (getBasePrice() * 0.05);
