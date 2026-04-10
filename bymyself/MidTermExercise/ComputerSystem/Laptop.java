@@ -1,6 +1,6 @@
 package bymyself.MidTermExercise.ComputerSystem;
 
-public class Laptop extends Computer{
+public class Laptop extends Computer implements Upgradable{
     public Laptop(int id, String brand, double basePrice){
         super(id, brand, basePrice);
     }
@@ -13,4 +13,14 @@ public class Laptop extends Computer{
     public String toString(){
         return super.toString();
     }
+    //Implemented Interface Methods
+    @Override
+    public void upgrade(){
+        for(Component c : components){
+            c.upgradeSpecs();
+        }
+        setBasePrice(getBasePrice()*2);
+        System.out.println("DONE!");
+    }
+
 }
