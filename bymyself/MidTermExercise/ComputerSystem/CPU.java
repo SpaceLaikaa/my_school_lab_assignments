@@ -17,4 +17,8 @@ public class CPU extends Component{
     public String getType(){
         return "CPU";
     }
+    @Override
+    public String toString(){
+        return super.toString()+" | Cores: "+cores;
+    }
 }
