@@ -1,9 +1,17 @@
 package lab_projects_Semester2.s2lab6.Task2;
 
+import javax.xml.crypto.dsig.CanonicalizationMethod;
+
 public class Building implements Damageable,Repairable,Upgradeable{
     public String type;
     public double health;
     public int level;
+
+    public Building(String type,double health,int level){
+        this.type=type;
+        this.health=health;
+        this.level=level;
+    }
 
     @Override
     public void repair(int amount){
@@ -11,7 +19,8 @@ public class Building implements Damageable,Repairable,Upgradeable{
     }
     @Override
     public void takeDamage(int amount){
-
+        health-=amount;
+        System.out.println(type+" building took "+amount+" damage. Remaining health: "+health);
     }
     @Override
     public boolean isDestroyed(){
