@@ -11,7 +11,8 @@ public class Weapon implements Damageable,Repairable{
 
     @Override
     public void repair(int amount){
-
+        durability+=amount;
+        System.out.println("Weapon "+name+" repaired. Durability: "+durability);
     }
 
     @Override
@@ -21,6 +22,6 @@ public class Weapon implements Damageable,Repairable{
     }
     @Override
     public boolean isDestroyed(){
-        return false;//placeholder
+        if(durability<=0){return true;} else{return false;}
     }
 }

@@ -22,6 +22,6 @@ public class GameCharacter implements Damageable, Upgradeable{
     }
     @Override
     public boolean isDestroyed(){
-        return false;//placeholder
+        if(health<=0){return true;} else{return false;}
     }
 }

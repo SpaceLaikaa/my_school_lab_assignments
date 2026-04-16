@@ -15,7 +15,8 @@ public class Building implements Damageable,Repairable,Upgradeable{
 
     @Override
     public void repair(int amount){
-
+        health+=amount;
+        System.out.println(type+" building repaired. Health: "+health);
     }
     @Override
     public void takeDamage(int amount){
@@ -24,7 +25,7 @@ public class Building implements Damageable,Repairable,Upgradeable{
     }
     @Override
     public boolean isDestroyed(){
-        return false;//placeholder
+        if(health<=0){return true;} else{return false;}
     }
     @Override
     public void upgrade(){
