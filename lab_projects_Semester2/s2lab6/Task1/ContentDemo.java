@@ -1,4 +1,4 @@
-package lab_projects_Semester2.s2lab6;
+package lab_projects_Semester2.s2lab6.Task1;
 
 import java.util.ArrayList;
 
@@ -14,9 +14,9 @@ public class ContentDemo {
 
         for(Content content : contentArrayList){
             content.displayInfo();
-            System.out.println("=========");
             System.out.println("Total Duration: "+ content.calculateTotalDuration());
             System.out.println("Category: "+ content.getRecommendationCategory());
+            System.out.println("=========");
         }
     }
 }

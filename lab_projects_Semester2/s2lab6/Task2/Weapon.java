@@ -1,0 +1,20 @@
+package lab_projects_Semester2.s2lab6.Task2;
+
+public class Weapon implements Damageable,Repairable{
+    public String name;
+    public double durability;
+
+    @Override
+    public void repair(int amount){
+
+    }
+
+    @Override
+    public void takeDamage(int amount){
+
+    }
+    @Override
+    public boolean isDestroyed(){
+        return false;//placeholder
+    }
+}
