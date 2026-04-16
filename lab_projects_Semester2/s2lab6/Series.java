@@ -10,11 +10,11 @@ public class Series extends Content {
 
     @Override
     public int calculateTotalDuration(){
-        return 0;
+        return getBaseDuration()*numberOfEpisodes;
     }
 
     @Override
     public String getRecommendationCategory() {
-        return "";
+        if(numberOfEpisodes>=10){return "Binge Worthy";} else{return "Mini Series";}
     }
 }

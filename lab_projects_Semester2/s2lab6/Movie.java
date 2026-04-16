@@ -1,18 +1,20 @@
 package lab_projects_Semester2.s2lab6;
 
 public class Movie extends Content{
-
-    public Movie(int id, String title, int baseDuration) {
+    boolean hasPostCreditScene;
+    public Movie(int id, String title, int baseDuration,boolean hasPostCreditScene) {
         super(id, title, baseDuration);
+        this.hasPostCreditScene = hasPostCreditScene;
     }
 
     @Override
     public int calculateTotalDuration(){
-        return 0;
+        if(hasPostCreditScene){return getBaseDuration();} else{return getBaseDuration();}
     }
 
     @Override
     public String getRecommendationCategory() {
-        return "";
+        if(getBaseDuration()<90){return "Short Watch";}
+        else{return "Feature Length";}
     }
 }

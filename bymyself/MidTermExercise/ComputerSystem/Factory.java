@@ -44,4 +44,7 @@ public class Factory {
         }
         System.out.println("Total Price: "+totalPrice);
     }
+    public double applyPriceOp(Computer c, PriceOperation op) {
+        return op.execute(c);
+    }
  }
