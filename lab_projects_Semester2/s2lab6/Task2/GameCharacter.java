@@ -13,7 +13,9 @@ public class GameCharacter implements Damageable, Upgradeable{
 
     @Override
     public void upgrade(){
-
+        level+=1;
+        health+=20;
+        System.out.println("Character "+name+" leveled up to "+level+". Health: "+health+".");
     }
     @Override
     public void takeDamage(int amount){

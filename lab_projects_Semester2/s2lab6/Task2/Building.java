@@ -29,7 +29,8 @@ public class Building implements Damageable,Repairable,Upgradeable{
     }
     @Override
     public void upgrade(){
-
+        level+=1;
+        System.out.println(type+" building upgraded to level "+level);
     }
 
 }
