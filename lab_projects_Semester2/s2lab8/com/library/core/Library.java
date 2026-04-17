@@ -12,6 +12,42 @@ public class Library {
         this.shelves = new HashMap<>();
     }
 
+    public void addShelf(Shelf shelf){
+        shelves.put(shelf.shelfNumber, shelf);
+    }
+    public void calculateLateFee(LoanRecord lr){
+        lr.borrowFee=(lr.borrowedDayCount)*2;
+    }
+    public void printLibraryStatus(){
+        System.out.println(shelves);
+    }
+
+    public static class LoanRecord{
+        private String borrowerName;
+        private Shelf shelf;
+        private LibraryItem borrowedItem;
+        private int borrowedDayCount;
+        private double borrowFee;
+
+        public LoanRecord(String borrowerName, Shelf shelf, LibraryItem borrowedItem){
+            this.borrowerName=borrowerName;
+            this.shelf = shelf;
+            this.borrowedItem=borrowedItem;
+        }
+
+        public double getBorrowFee() {return borrowFee;}
+        public int getBorrowedDayCount() {return borrowedDayCount;}
+        public LibraryItem getBorrowedItem() {return borrowedItem;}
+        public Shelf getShelf() {return shelf;}
+        public String getBorrowerName() {return borrowerName;}
+
+        public void setBorrowedItem(LibraryItem borrowedItem) {this.borrowedItem = borrowedItem;}
+        public void setBorrowerName(String borrowerName) {this.borrowerName = borrowerName;}
+        public void setBorrowFee(double borrowFee) {this.borrowFee = borrowFee;}
+        public void setBorrowedDayCount(int borrowedDayCount) {this.borrowedDayCount = borrowedDayCount;}
+        public void setShelf(Shelf shelf) {this.shelf = shelf;}
+    }
+
     public class Shelf{
         private int shelfNumber;
         private LibraryItem storedItem;
@@ -37,5 +73,4 @@ public class Library {
             return "Shelf [Shelf NO: "+shelfNumber+", Stored Item: "+storedItem+"]";
         }
     }
-
 }
