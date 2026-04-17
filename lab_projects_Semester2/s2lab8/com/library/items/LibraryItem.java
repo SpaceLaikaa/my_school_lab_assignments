@@ -17,7 +17,7 @@ public abstract class LibraryItem {
 
     @Override
     public String toString() {
-        return "Library Item [ID: " + itemId + ", Title: " + title + "]";
+        return "Library Item [ID: " + itemId + ", Title: " + title;
     }
 
     public abstract String getItemType();
