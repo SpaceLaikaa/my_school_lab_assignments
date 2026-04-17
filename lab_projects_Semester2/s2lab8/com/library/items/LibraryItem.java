@@ -1,8 +1,8 @@
 package lab_projects_Semester2.s2lab8.com.library.items;
 
 public abstract class LibraryItem {
-    public int itemId;
-    public String title;
+    private int itemId;
+    private String title;
 
     public LibraryItem(int itemId, String title){
         this.itemId = itemId;

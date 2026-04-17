@@ -1,7 +1,7 @@
 package lab_projects_Semester2.s2lab6.Task1;
 
 public class Movie extends Content{
-    boolean hasPostCreditScene;
+    private boolean hasPostCreditScene;
     public Movie(int id, String title, int baseDuration,boolean hasPostCreditScene) {
         super(id, title, baseDuration);
         this.hasPostCreditScene = hasPostCreditScene;

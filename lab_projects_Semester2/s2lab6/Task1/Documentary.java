@@ -1,8 +1,8 @@
 package lab_projects_Semester2.s2lab6.Task1;
 
 public class Documentary extends Content{
-    int numberOfScientistInterviews;
-    int researchDepthLevel;
+    private int numberOfScientistInterviews;
+    private int researchDepthLevel;
 
     public Documentary(int id, String title, int baseDuration,int numberOfScientistInterviews,int researchDepthLevel) {
         super(id, title, baseDuration);

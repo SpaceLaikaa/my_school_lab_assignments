@@ -1,8 +1,8 @@
 package lab_projects_Semester2.s2lab6.Task2;
 
 public class Weapon implements Damageable,Repairable{
-    public String name;
-    public double durability;
+    private String name;
+    private double durability;
 
     public Weapon(String name,double durability){
         this.name=name;

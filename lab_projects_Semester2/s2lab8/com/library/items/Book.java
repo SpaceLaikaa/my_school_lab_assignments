@@ -1,7 +1,7 @@
 package lab_projects_Semester2.s2lab8.com.library.items;
 
 public class Book extends LibraryItem{
-    public String author;
+    private String author;
 
     public Book(int itemId, String title,String author){
         super(itemId, title);
@@ -10,7 +10,7 @@ public class Book extends LibraryItem{
 
     @Override
     public String getItemType(){
-        return "";
+        return "Book";
     }
 
     @Override

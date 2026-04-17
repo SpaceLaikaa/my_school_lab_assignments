@@ -3,9 +3,9 @@ package lab_projects_Semester2.s2lab6.Task2;
 import javax.xml.crypto.dsig.CanonicalizationMethod;
 
 public class Building implements Damageable,Repairable,Upgradeable{
-    public String type;
-    public double health;
-    public int level;
+    private String type;
+    private double health;
+    private int level;
 
     public Building(String type,double health,int level){
         this.type=type;

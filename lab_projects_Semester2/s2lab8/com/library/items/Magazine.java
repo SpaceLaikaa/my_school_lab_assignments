@@ -1,7 +1,7 @@
 package lab_projects_Semester2.s2lab8.com.library.items;
 
 public class Magazine extends LibraryItem{
-    public int issueNumber;
+    private int issueNumber;
 
     public Magazine(int itemId, String title,int issueNumber){
         super(itemId, title);
@@ -10,7 +10,7 @@ public class Magazine extends LibraryItem{
 
     @Override
     public String getItemType(){
-        return "";
+        return "Magazine";
     }
 
     @Override
