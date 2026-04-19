@@ -1,9 +1,10 @@
 package lab_projects_Semester2.s2lab8.com.library.core;
 
+import lab_projects_Semester2.s2lab8.com.library.interfaces.LendingService;
 import lab_projects_Semester2.s2lab8.com.library.items.LibraryItem;
 import java.util.HashMap;
 
-public class Library {
+public class Library implements LendingService {
     private String libraryName;
     HashMap<Integer, Shelf> shelves;
 
@@ -18,8 +19,27 @@ public class Library {
     public void calculateLateFee(LoanRecord lr){
         lr.borrowFee=(lr.borrowedDayCount)*2;
     }
-    public void printLibraryStatus(){
-        System.out.println(shelves);
+    public void printLibraryStatus(){System.out.println(shelves);}
+
+    @Override
+    public LoanRecord Lend(int shelfNumber, String borrowerName){
+        Shelf shelf1 = shelves.get(shelfNumber);
+        LibraryItem item = shelf1.getStoredItem();
+        LoanRecord newRecord = new LoanRecord(borrowerName, shelf1, item);
+        return newRecord;
+    }
+
+    @Override
+    public void returnItem(LoanRecord lr){
+        LibraryItem item = lr.getBorrowedItem();
+        Shelf originalShelf = lr.getShelf();
+        originalShelf.setStoredItem(item);
+
+        calculateLateFee(lr);
+
+        System.out.println("Item " + item.getTitle() +
+                " has been returned to the library. The fee of " +
+                lr.getBorrowFee() + " has been paid");
     }
 
     public static class LoanRecord{
