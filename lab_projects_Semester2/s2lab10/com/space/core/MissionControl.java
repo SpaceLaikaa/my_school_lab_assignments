@@ -40,4 +40,26 @@ public class MissionControl {
             System.out.println("Empty list can't remove. Error");
         }
     }
-}
+
+    public void printMissionMembers(){
+        for(Astronaut a : astronauts){
+            System.out.println(a);
+        }
+        for(SpaceCraft sc : spaceCrafts){
+            System.out.println(sc);
+        }
+    }
+
+    public Astronaut getAstronaut(String astronautName){
+        for(Astronaut a : astronauts){
+            if (a.equals(astronautName)){return a;}
+        }
+        return null;
+    }
+    public SpaceCraft getSpacecraft(String craftName){
+        for(SpaceCraft a : spaceCrafts){
+            if (a.equals(craftName)){return a;}
+        }
+        return null;
+    }
+    }
