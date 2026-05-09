@@ -1,10 +1,14 @@
 package lab_projects_Semester2.s2lab10.com.space.core;
 
 import lab_projects_Semester2.s2lab10.com.space.exceptions.InsufficientFuelException;
+import lab_projects_Semester2.s2lab10.com.space.exceptions.MissionDataException;
 import lab_projects_Semester2.s2lab10.com.space.mission.MissionTask;
 import lab_projects_Semester2.s2lab10.com.space.core.SpaceCraft;
 
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class MissionControl {
@@ -69,7 +73,7 @@ public class MissionControl {
         return null;
     }
 
-    public void launchTask(String craftName,String astronautName, MissionTask task){
+    public void launchTask(String craftName,String astronautName, MissionTask task) throws MissionDataException {
 
         Astronaut astronaut1 = getAstronaut(astronautName);
         SpaceCraft spaceCraft1 = getSpacecraft(craftName);
@@ -82,14 +86,31 @@ public class MissionControl {
             astronaut1.performTask(task);
 
         } catch (InsufficientFuelException e) {
-            System.out.println(e.getMessage());
+            throw new MissionDataException("Fuel system error during launch", e);
+
         } catch (NullPointerException e) {
-            System.out.println(e.getMessage());
+            throw new MissionDataException("Missing mission resource error", e);
+
         } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
+            throw new MissionDataException("Astronaut experience or runtime error", e);
         } finally {
             System.out.println("Mission control finished processing task: " + craftName);
             System.out.println("Mission control finished processing task: " + astronautName);
         }
+    }
+
+    void exportMissionLog(String logText) {
+        PrintWriter out = null;
+        try{
+            out = new PrintWriter(new FileWriter("logs.txt"));
+            out.println(logText);
+        } catch (IOException e) {
+            System.out.println("Error: Could not write mission log to file. " + e.getMessage());
+        } finally {
+            if(out!=null){
+                out.close();
+            }
+        }
+
     }
 }
