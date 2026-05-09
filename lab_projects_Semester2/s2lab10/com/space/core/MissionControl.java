@@ -29,7 +29,11 @@ public class MissionControl {
 
     public void removeSpacecraft(String craftName){
         try{
-            spaceCrafts.remove(craftName);
+            for (int i = 0; i < spaceCrafts.size(); i++) {
+                if(spaceCrafts.get(i).getCraftName().equalsIgnoreCase(craftName)){
+                    spaceCrafts.remove(i);
+                }
+            }
         }catch(Exception e){
             System.out.println("Empty list can't remove. Error");
         }
@@ -42,7 +46,7 @@ public class MissionControl {
     public void removeAstronaut(String astronautName){
         try{
             for(int i =0;i<astronauts.size();i++){
-                if(astronauts.get(i).equals(astronautName)){
+                if(astronauts.get(i).getName().equalsIgnoreCase(astronautName)){
                     astronauts.remove(i);
                 }
             }

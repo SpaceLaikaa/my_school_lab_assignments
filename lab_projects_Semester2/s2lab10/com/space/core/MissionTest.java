@@ -28,8 +28,24 @@ public class MissionTest {
 
         missionControl.printMissionMembers();
 
+        missionControl.removeAstronaut("Arda");
+        missionControl.removeSpacecraft("Love-M4");
 
+        System.out.println("\n====AFTER REMOVAL====");
+        missionControl.printMissionMembers();
+
+        System.out.println("\n====TASKS====");
+        try {
+            System.out.println("TASK 1");
+            missionControl.launchTask("Good Night-G1","Zehra",Task1);
+//            System.out.println("\nTASK 2");
+//            missionControl.launchTask("Good Night-G1", "Zehra",Task2); FUEL EXCEPTION
+//            System.out.println("\nTASK 3");
+//            missionControl.launchTask("Good Night-G1", "",Task1); NULL EXCEPTION
+//            System.out.println("\nTASK 4");
+//            missionControl.launchTask("Good Night-G1", "Zehra",Task3);  NO EXP FOR TASK
+        } catch (MissionDataException e) {
+            throw new RuntimeException(e);
+        }
     }
-
-
 }
