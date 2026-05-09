@@ -1,7 +1,7 @@
 package lab_projects_Semester2.s2lab6.Task2;
 
 public class GameCharacter implements Damageable, Upgradeable{
-    private String name;
+    String name;
     private double health;
     private int level;
 
