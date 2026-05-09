@@ -1,5 +1,10 @@
 package lab_projects_Semester2.s2lab10.com.space.core;
 
+import lab_projects_Semester2.s2lab10.com.space.exceptions.InsufficientFuelException;
+import lab_projects_Semester2.s2lab10.com.space.mission.MissionTask;
+import lab_projects_Semester2.s2lab10.com.space.core.SpaceCraft;
+
+
 import java.util.ArrayList;
 
 public class MissionControl {
@@ -7,10 +12,11 @@ public class MissionControl {
     private ArrayList<SpaceCraft> spaceCrafts;
     private ArrayList<Astronaut> astronauts;
 
+
     public MissionControl(String missionName, ArrayList spaceCrafts, ArrayList astronauts){
         this.missionName=missionName;
-        spaceCrafts=new ArrayList();
-        astronauts=new ArrayList();
+        this.spaceCrafts=new ArrayList();
+        this.astronauts=new ArrayList();
     }
 
     public void addSpacecraft(SpaceCraft spaceCraft){
@@ -52,14 +58,38 @@ public class MissionControl {
 
     public Astronaut getAstronaut(String astronautName){
         for(Astronaut a : astronauts){
-            if (a.equals(astronautName)){return a;}
+            if (a.getName().equals(astronautName)){return a;}
         }
         return null;
     }
     public SpaceCraft getSpacecraft(String craftName){
         for(SpaceCraft a : spaceCrafts){
-            if (a.equals(craftName)){return a;}
+            if (a.getCraftName().equals(craftName)){return a;}
         }
         return null;
     }
+
+    public void launchTask(String craftName,String astronautName, MissionTask task){
+
+        Astronaut astronaut1 = getAstronaut(astronautName);
+        SpaceCraft spaceCraft1 = getSpacecraft(craftName);
+        try {
+            if (spaceCraft1 == null || astronaut1 == null) {
+                throw new NullPointerException("Missing astronaut or spacecraft.");
+            }
+
+            spaceCraft1.executeTask(task);
+            astronaut1.performTask(task);
+
+        } catch (InsufficientFuelException e) {
+            System.out.println(e.getMessage());
+        } catch (NullPointerException e) {
+            System.out.println(e.getMessage());
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Mission control finished processing task: " + craftName);
+            System.out.println("Mission control finished processing task: " + astronautName);
+        }
     }
+}
