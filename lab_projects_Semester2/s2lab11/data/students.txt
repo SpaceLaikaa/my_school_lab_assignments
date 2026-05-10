@@ -1,0 +1,6 @@
+20260601001,Ali Yilmaz,8,76.5,abc123
+20260601002,Ayse Demir,5,48.0,temp456
+20260601003,Mehmet Kaya,10,91.0,pass789
+20260601004,Zeynep Can,7,69.5,hidden1
+20260601005,Deniz Arslan,3,82.0,hidden2
+20260601006,Elif Sahin,9,58.0,hidden3
