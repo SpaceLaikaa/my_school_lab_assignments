@@ -5,6 +5,7 @@ package lab_projects_Semester2.s2lab11.com.labmanager.service;
 import lab_projects_Semester2.s2lab11.com.labmanager.model.StudentRecord;
 import java.io.BufferedReader; //reads files line by line using readLine() without overloading the memory
 import java.io.IOException; //checked exception thrown when a file is missing or unreadable
+import java.io.PrintWriter;
 import java.nio.file.Files; // The powerhouse utility class that handles opening, deleting, or copying files via methods
 import java.nio.file.Path;
 import java.nio.file.Paths; // Paths.get() = converts String to Path for bufferedReader.
@@ -34,5 +35,19 @@ public class RecordManager {
             System.out.println("File error: "+e.getMessage());
         }
         return studentRecords;
+    }
+
+    public static void writeSuccessfulReport(ArrayList<StudentRecord> records, Path reportPath){
+
+        try(PrintWriter out = new PrintWriter(Files.newBufferedWriter(reportPath))){
+            out.println("====Success Report===="); //title
+            for(StudentRecord record : records){
+                if(record.isSuccessful()){
+                    out.println(record.getInfo());
+                }
+            }
+        } catch (IOException e){
+            System.out.println("File error: "+e.getMessage());
+        }
     }
 }
