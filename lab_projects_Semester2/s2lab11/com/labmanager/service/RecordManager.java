@@ -81,5 +81,16 @@ public class RecordManager {
         }
     }
 
+    public static ArrayList<StudentRecord> deserializeRecords(Path backupPath){
+        try(ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(backupPath))){
+            ArrayList<StudentRecord> records = (ArrayList<StudentRecord>) ois.readObject();
+            return records;
 
+        } catch (ClassNotFoundException ce){
+            System.out.println("Class not found error: "+ce.getMessage());
+        } catch (IOException e){
+            System.out.println("Deserializing error: "+e.getMessage());
+        }
+        return new ArrayList<>(); // null for empty lists
+    }
 }
