@@ -4,6 +4,7 @@ package lab_projects_Semester2.s2lab11.com.labmanager.service;
 
 import lab_projects_Semester2.s2lab11.com.labmanager.model.StudentRecord;
 import java.io.BufferedReader; //reads files line by line using readLine() without overloading the memory
+import java.io.BufferedWriter;
 import java.io.IOException; //checked exception thrown when a file is missing or unreadable
 import java.io.PrintWriter;
 import java.nio.file.Files; // The powerhouse utility class that handles opening, deleting, or copying files via methods
@@ -47,6 +48,30 @@ public class RecordManager {
                 }
             }
         } catch (IOException e){
+            System.out.println("File error: "+e.getMessage());
+        }
+    }
+
+    public static void writeSummaryReport(ArrayList<StudentRecord> records, Path summaryPath){
+        int successfulStudents=0;
+        int totalStudents=0;
+        int unscsflStudents=0;
+        double classScore=0;
+
+        for (StudentRecord record : records){
+            totalStudents++;
+            classScore += record.getAverageScore();
+
+            if(record.isSuccessful()){successfulStudents++;}
+            else {unscsflStudents++;}
+        }
+        if(totalStudents>0){classScore/=totalStudents;}
+
+        try(PrintWriter summaryOut = new PrintWriter(Files.newBufferedWriter(summaryPath))){
+            summaryOut.println("====Report Summary====");
+            summaryOut.println("Successful Students: "+successfulStudents+" | Unsuccessful Students: "+unscsflStudents+
+                                " | Total Students: "+totalStudents+" | Class Average Score: "+classScore);
+        } catch(IOException e){
             System.out.println("File error: "+e.getMessage());
         }
     }
