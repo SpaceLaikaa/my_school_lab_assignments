@@ -1,5 +1,7 @@
 package lab_projects_Semester2.s2lab12.model;
 
+import javax.xml.namespace.QName;
+
 public class EmployeeRecord {
     private String ID;
     private String name;
@@ -18,4 +20,8 @@ public class EmployeeRecord {
     public void setEmail(String email) {this.email = email;}
     public void setID(String ID) {this.ID = ID;}
     public void setName(String name) {this.name = name;}
+
+    public String getInfo(){
+        return "ID: "+ID+" | Name: "+name+" | Email: "+email;
+    }
 }
