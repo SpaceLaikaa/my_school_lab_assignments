@@ -3,6 +3,7 @@ package lab_projects_Semester2.s2lab12.service;
 import lab_projects_Semester2.s2lab12.model.EmployeeRecord;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class DataManager {
             if (firstLine != null) {
                 String[] headers = firstLine.split(",");
                 System.out.println(headers[0] + "\t" + "Name" + "\t\t\t" + headers[2]);
-                System.out.println("---------------------------------------------------------");
+                System.out.println("------------------------------------------------");
             }
 
             String line;
@@ -24,7 +25,7 @@ public class DataManager {
                 String[] listParts = line.split(",");
 
                 String ID = listParts[0].trim();
-                String name = listParts[1].trim().replaceAll("  ", "").toUpperCase();
+                String name = listParts[1].trim().replaceAll("\\s+", " ").toUpperCase();
                 String email = listParts[2].trim();
 
                 EmployeeRecord employeeRecord = new EmployeeRecord(ID, name, email);
@@ -42,5 +43,17 @@ public class DataManager {
         return employeeRecords;
     }
 
-    public
+    public void writeHandledData(ArrayList<EmployeeRecord> employeeRecords, Path path){
+        try(PrintWriter out = new PrintWriter(Files.newBufferedWriter(path))){
+
+            out.println("ID,Name,Email");
+
+            for(EmployeeRecord employee : employeeRecords ){
+                out.println(employee.getID() + "," + employee.getName() + "," + employee.getEmail());
+            }
+
+        } catch(IOException e){
+            System.out.println("File path error: "+e.getMessage());
+        }
+    }
 }

@@ -1,10 +1,14 @@
 package lab_projects_Semester2.s2lab1;
 import java.util.Scanner;
+import java.util.Random;
 
 //MAIN CLASS
 public class DigitalArchive {
     public static void main (String[] args) {
         Scanner sc = new Scanner(System.in);
+        Random r = new Random();
+
+        
 
         Book book1 = new Book("978-35-3003", "Animal Farm", 280, 10);
         Book book2 = new Book("957-94-5044", "Dorian Gray's Portrait", 350, 22);
