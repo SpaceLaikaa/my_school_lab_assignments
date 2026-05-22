@@ -22,7 +22,7 @@ public abstract class Delivery {
     public abstract double calculateTotal();
 
     public void printReceipt(){
-        System.out.println("Order ID: "+orderId+", Delivery Type: "+getClass().getName()
+        System.out.println("Order ID: "+orderId+", Delivery Type: "+getClass().getSimpleName()
                 +", Distance: "+distanceKm+", Base Fee: "+baseFee+", Total Fee: "+calculateTotal());
     }
 }
