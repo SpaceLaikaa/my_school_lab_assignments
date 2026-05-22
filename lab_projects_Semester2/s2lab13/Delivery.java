@@ -18,4 +18,11 @@ public abstract class Delivery {
     public void setBaseFee(double baseFee) {this.baseFee = baseFee;}
     public void setOrderId(String orderId) {this.orderId = orderId;}
     public void setDistanceKm(double distanceKm) {this.distanceKm = distanceKm;}
+
+    public abstract double calculateTotal();
+
+    public void printReceipt(){
+        System.out.println("Order ID: "+orderId+", Delivery Type: "+getClass().getName()
+                +", Distance: "+distanceKm+", Base Fee: "+baseFee+", Total Fee: "+calculateTotal());
+    }
 }
