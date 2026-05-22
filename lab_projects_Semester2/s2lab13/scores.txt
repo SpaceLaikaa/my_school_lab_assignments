@@ -1,0 +1,8 @@
+Ali,85
+Ayse,100
+Mehmet,abc
+,90
+Zeynep,120
+Can,70
+Ece,-5
+Burak,55
