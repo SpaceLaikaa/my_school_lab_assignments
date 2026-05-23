@@ -1,4 +1,4 @@
-package lab_projects_Semester2.s2lab13;
+package lab_projects_Semester2.s2lab13.DeliveryTask;
 
 public class CarDelivery extends Delivery {
 
