@@ -23,4 +23,9 @@ public class CampusAsset implements CarbonEmitter{
     public void displayInfo(){
         System.out.println("Name: "+name+", ID: "+id+", Active Hours: "+activeHours);
     }
+
+    @Override
+    public double calculateCarbonFootprint() {
+        return 0;
+    }
 }
