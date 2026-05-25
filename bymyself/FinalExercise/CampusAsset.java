@@ -15,6 +15,7 @@ public class CampusAsset implements CarbonEmitter{
     public void setId(String id) {this.id = id;}
 
     public CampusAsset(double activeHours, String name, String id) {
+        if (activeHours<=0){throw new InvalidEmissionDataException("Active Hours Cannot Be Lower or Equal to zero.");}
         this.activeHours = activeHours;
         this.name = name;
         this.id = id;
