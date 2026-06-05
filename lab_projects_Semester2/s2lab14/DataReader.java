@@ -8,7 +8,9 @@ import java.util.ArrayList;
 
 public class DataReader {
 
-    public void readData(Path dataPath){
+    public ArrayList<ProductRecord> readData(Path dataPath){
+        ArrayList<ProductRecord> records = new ArrayList<>();
+
         try(BufferedReader br = Files.newBufferedReader(dataPath)){
             String line;
 
@@ -21,15 +23,20 @@ public class DataReader {
                 String quantity = dataList[2];
                 String price = dataList[3];
 
-                if (Integer.parseInt(quantity)<0&&Double.parseDouble(price)<0){
-                    throw new IllegalArgumentException("Price or Quantity can not be below zero.");
+                try{
+                    if (Integer.parseInt(quantity)<0 && Double.parseDouble(price)<0);
+                } catch (IllegalArgumentException e) {
+                    throw new IllegalArgumentException("Price or Quantity can not be lower than 0");
                 }
+                records.add(new ProductRecord(product,category,Integer.parseInt(quantity),Double.parseDouble(price)));
+
             }
 
 
         } catch (IOException e){
             System.out.println("Cannot find readable data file path");
         }
+        return records;
     }
 
 }
