@@ -19,4 +19,6 @@ public abstract class Payment {
     public String toString() {
         return "Customer Name: "+customerName+", Amount: "+amount;
     }
+
+    public abstract double calculateFinalAmount();
 }
