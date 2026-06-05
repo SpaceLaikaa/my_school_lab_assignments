@@ -1,0 +1,9 @@
+Laptop,Electronics,5,1200
+Mouse,Electronics,10,25
+Notebook,Stationery,20,3.5
+Monitor,Electronics,2,350
+
+Keyboard,Electronics,abc,50
+Chair,Furniture,-2,100
+Desk,Furniture,3,-150
+Phone,Electronics,5
