@@ -1,4 +1,4 @@
-package lab_projects_Semester2.s2lab14;
+package lab_projects_Semester2.s2lab14.Task1;
 
 public class ProductRecord {
     private String productName;
