@@ -10,7 +10,7 @@ public class RecordBox<T> {
     public void printAll(){
         System.out.println("==Record box==");
         for(T array : records){
-            System.out.println(array);
+            System.out.println(array.toString());
         }
     }
 

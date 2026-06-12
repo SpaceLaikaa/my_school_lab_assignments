@@ -21,8 +21,9 @@ public abstract class Delivery {
 
     public abstract double calculateTotal();
 
-    public void printReceipt(){
-        System.out.println("Order ID: "+orderId+", Delivery Type: "+getClass().getSimpleName()
-                +", Distance: "+distanceKm+", Base Fee: "+baseFee+", Total Fee: "+calculateTotal());
+    @Override
+    public String toString(){
+       return "Order ID: "+orderId+", Delivery Type: "+getClass().getSimpleName()
+                +", Distance: "+distanceKm+", Base Fee: "+baseFee+", Total Fee: "+calculateTotal();
     }
 }
