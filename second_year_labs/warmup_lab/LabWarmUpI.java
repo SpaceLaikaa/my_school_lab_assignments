@@ -48,9 +48,8 @@ class Request {
 
 class RequestPriorityComparator implements Comparator<Request> {
     @Override
-    public int compare(Request   first, Request second) {
-        // TODO Task 1: Compare the requests by priority.
-        return 0;
+    public int compare(Request first, Request second) {
+        return Integer.compare(first.getPriority(), second.getPriority());
     }
 }
 
@@ -64,11 +63,15 @@ class HelpDeskManager {
     }
 
     public boolean addRequest(Request request) {
-        // TODO Task 2:
-        // 1. Reject a null request, an invalid priority, or a duplicate ID.
-        // 2. Add the ID and request to the appropriate collections.
-        // 3. Sort requests using RequestPriorityComparator.
-        return false;
+        if (request == null || request.getPriority()<1||activeIds.contains(request.getId()))
+        {return false;}
+        else{
+            activeIds.add(request.getId());
+            requests.add(request);
+            requests.sort(new RequestPriorityComparator());
+
+            return true;
+        }
     }
 
     public HashMap<Integer, Integer> countRequestsByPriority() {
