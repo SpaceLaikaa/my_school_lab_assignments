@@ -76,17 +76,28 @@ class HelpDeskManager {
 
     public HashMap<Integer, Integer> countRequestsByPriority() {
         // TODO Task 3: Count the requests at each priority level.
-        return new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> priorityCounts = new HashMap<>();
+
+        for(Request r : requests){
+            int priority=r.getPriority();
+            priorityCounts.put(priority, priorityCounts.getOrDefault(priority, 0) + 1);
+
+        }
+        return priorityCounts;
     }
 
     public boolean containsUsingList(int requestId) {
-        // TODO Task 4: Search requests one by one without using activeIds.
+        for (Request r : requests){
+            if (r.getId() == requestId){
+                return true;
+            }
+        }
         return false;
     }
 
     public boolean containsUsingSet(int requestId) {
         // TODO Task 4: Search for requestId using activeIds.
-        return false;
+        return activeIds.contains(requestId);
     }
 
     // This helper method is provided for Task 5.
@@ -100,6 +111,15 @@ class HelpDeskManager {
 public class LabWarmUpI {
     public static void main(String[] args) {
         // TODO Task 5:
+
+        HelpDeskManager manager1 = new HelpDeskManager();
+        Request request1 = new Request(1,"Arda",1);
+        Request request2 = new Request(2,"Adda",3);
+        Request request3 = new Request(3,"Anda",2);
+        Request request4 = new Request(4,"Amda",1);
+        Request duplicateIdRequest = new Request(1,"Arda",1);
+
+
         // 1. Create a HelpDeskManager.
         // 2. Add at least four requests. At least two must have the same priority.
         // 3. Try to add a request with a duplicate ID.
