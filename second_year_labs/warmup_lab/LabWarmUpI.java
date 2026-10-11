@@ -63,9 +63,9 @@ class HelpDeskManager {
     }
 
     public boolean addRequest(Request request) {
-        if (request == null || request.getPriority()<1||activeIds.contains(request.getId()))
-        {return false;}
-        else{
+        if (request == null || request.getPriority() < 1 || activeIds.contains(request.getId())) {
+            return false;
+        } else {
             activeIds.add(request.getId());
             requests.add(request);
             requests.sort(new RequestPriorityComparator());
@@ -78,8 +78,8 @@ class HelpDeskManager {
         // TODO Task 3: Count the requests at each priority level.
         HashMap<Integer, Integer> priorityCounts = new HashMap<>();
 
-        for(Request r : requests){
-            int priority=r.getPriority();
+        for (Request r : requests) {
+            int priority = r.getPriority();
             priorityCounts.put(priority, priorityCounts.getOrDefault(priority, 0) + 1);
 
         }
@@ -87,8 +87,8 @@ class HelpDeskManager {
     }
 
     public boolean containsUsingList(int requestId) {
-        for (Request r : requests){
-            if (r.getId() == requestId){
+        for (Request r : requests) {
+            if (r.getId() == requestId) {
                 return true;
             }
         }
@@ -107,17 +107,36 @@ class HelpDeskManager {
         }
     }
 }
-
 public class LabWarmUpI {
     public static void main(String[] args) {
         // TODO Task 5:
 
         HelpDeskManager manager1 = new HelpDeskManager();
-        Request request1 = new Request(1,"Arda",1);
-        Request request2 = new Request(2,"Adda",3);
-        Request request3 = new Request(3,"Anda",2);
-        Request request4 = new Request(4,"Amda",1);
-        Request duplicateIdRequest = new Request(1,"Arda",1);
+        Request request1 = new Request(1, "Arda", 1);
+        Request request2 = new Request(2, "Adda", 3);
+        Request request3 = new Request(3, "Anda", 2);
+        Request request4 = new Request(4, "Amda", 1);
+        Request duplicateIdRequest = new Request(1, "Arda", 1);
+
+        manager1.addRequest(request1);
+        manager1.addRequest(request2);
+        manager1.addRequest(request3);
+        manager1.addRequest(request4);
+        manager1.addRequest(duplicateIdRequest);
+
+        manager1.printRequests();
+        manager1.countRequestsByPriority();
+        if(manager1.containsUsingList(3)){
+            System.out.println("Contains");
+        } else {
+            System.out.println("null");
+        }
+
+        if(manager1.containsUsingSet(5)){
+            System.out.println("Yes");
+        } else{
+            System.out.println("?");
+        }
 
 
         // 1. Create a HelpDeskManager.
