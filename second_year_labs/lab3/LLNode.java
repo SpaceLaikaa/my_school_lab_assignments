@@ -218,11 +218,23 @@ class CDLinkedList
 
     public int getElement ( int position, boolean isBackwards)
     {
-        /*
-         *
-         * Write your solution here
-         *
-         */
-        return -1;
+        LLNode tail = getTailNode();
+        LLNode head = getHeadNode();
+
+        if(position < 0 || position >= getSize()){return -1;}
+
+        if (isBackwards){
+            for (int i = 0; i < getSize()-1-position; i++) {
+                tail = tail.getPrevElement();
+            }
+
+            return tail.getElement();
+        } else {
+            for (int i = 0; i < position; i++) {
+                head = head.getNextElement();
+            }
+
+            return head.getElement();
+        }
     }
 }
