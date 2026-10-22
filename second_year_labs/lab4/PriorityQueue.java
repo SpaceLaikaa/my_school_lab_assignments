@@ -136,15 +136,16 @@ public class PriorityQueue {
     // TODO:
     public int findPlace(String name){
         int counter=0;
+        Node cursor = getHeadNode();
 
-        if(name == null||getSize()<0){
+        if(name == null){
             return -1;
         } else{
-            while(getHeadNode().name != null){
-                if (name.equals(getHeadNode().name)){
+            while(cursor.name != null){
+                if (name.equals(cursor.name)){
                     return counter;
                 } else{
-                    setHeadNode(getHeadNode().getNext());
+                    cursor = cursor.getNext();
                     counter++;
                 }
             }
@@ -156,6 +157,21 @@ public class PriorityQueue {
     // TODO:
     public boolean promote(String name){
 
+        Node temp = getHeadNode();
+
+        if(getSize()<0||name==null || getHeadNode().name.equals(name)){
+            return false;
+        } else{
+            int placeOfNode=findPlace(name);
+            for (int i = 0; i < placeOfNode; i++) {
+                temp = temp.getNext();
+            }
+            temp.setPriority(placeOfNode-1);
+
+            while(temp != null && temp.getNext().getPriority() <= temp.getPriority()){
+                temp = temp.getNext();
+            }
+        }
 
         return true;
     }
@@ -171,17 +187,20 @@ public class PriorityQueue {
         return true;
     }
 
+    static void main(String[] args) {
+        PriorityQueue priorityQueue = new PriorityQueue();
 
+        Node node1 = new Node(1, "A1");
+        Node node2 = new Node(2, "B2");
+        Node node3 = new Node(2, "B1");
+        Node node4 = new Node(3, "A1");
 
-
-
-
-
-
-
-
-
+        priorityQueue.setHeadNode(node1);
+        priorityQueue.setSize(4);
+        priorityQueue.printQueue();
+    }
 }
+
 
 
 
