@@ -141,7 +141,7 @@ public class PriorityQueue {
         if(name == null){
             return -1;
         } else{
-            while(cursor.name != null){
+            while(cursor != null){
                 if (name.equals(cursor.name)){
                     return counter;
                 } else{
@@ -157,23 +157,46 @@ public class PriorityQueue {
     // TODO:
     public boolean promote(String name){
 
-        Node temp = getHeadNode();
-
-        if(getSize()<0||name==null || getHeadNode().name.equals(name)){
+        if(headNode == null || getSize() < 0 || name == null){
             return false;
-        } else{
-            int placeOfNode=findPlace(name);
-            for (int i = 0; i < placeOfNode; i++) {
-                temp = temp.getNext();
-            }
-            temp.setPriority(placeOfNode-1);
-
-            while(temp != null && temp.getNext().getPriority() <= temp.getPriority()){
-                temp = temp.getNext();
-            }
         }
 
-        return true;
+        if(headNode.name.equals(name)){
+            if(headNode.getPriority() <= 1){
+                return false;
+            }
+            int newPriority = headNode.getPriority() - 1;
+            headNode = headNode.getNext();
+            size--;
+            return enqueue(newPriority, name);
+        }
+
+        int placeOfNode = findPlace(name);
+
+        if(placeOfNode == -1) {
+            return false;
+        }
+
+        Node temp = getHeadNode();
+        for (int i = 0; i < placeOfNode; i++) {
+            temp = temp.getNext();
+        }
+
+        if(temp.getPriority() <= 1){
+            return false;
+        }
+
+        Node prev = getHeadNode();
+        for (int i = 0; i < placeOfNode - 1; i++) {
+            prev = prev.getNext();
+        }
+
+        int newPriority = temp.getPriority() - 1;
+
+        prev.setNext(temp.getNext());
+        size--;
+
+        return enqueue(newPriority, name);
     }
 
 
@@ -190,14 +213,14 @@ public class PriorityQueue {
     static void main(String[] args) {
         PriorityQueue priorityQueue = new PriorityQueue();
 
-        Node node1 = new Node(1, "A1");
-        Node node2 = new Node(2, "B2");
-        Node node3 = new Node(2, "B1");
-        Node node4 = new Node(3, "A1");
+        priorityQueue.enqueue(1, "A1");
+        priorityQueue.enqueue(2, "B2");
+        priorityQueue.enqueue(2, "B1");
+        priorityQueue.enqueue(3,  "C1");
 
-        priorityQueue.setHeadNode(node1);
-        priorityQueue.setSize(4);
         priorityQueue.printQueue();
+
+        priorityQueue.promote("C1");
     }
 }
 
